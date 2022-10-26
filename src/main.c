@@ -29,7 +29,7 @@ int main(void)
       printf("\ntime is: %d", time);
     }
     printf("\nbit is not set");
-
+    // test
     _delay_ms(100);
   }
 
