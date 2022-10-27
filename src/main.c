@@ -20,16 +20,15 @@ int main(void)
   while (1)
   {
 
-    while (TIFR1 & (1 << ICF1)) // Checks if ICF1 is on a rising edge
+    while (TIFR1 | (1 << ICF1)) // Checks if ICF1 is on a rising edge
     {
-      printf("\nBit is set");
-      TIFR1 = (1 << ICF1); // resets ICF1
-      TCNT1 = 0;           // Resets TCNT1
-      time = ICR1;         // copies ICR1 into a local variable
-      printf("\ntime is: %d", time);
-    }
     printf("\nbit is not set");
-    // test
+    }
+    printf("\nBit is set");
+    TIFR1 = (1 << ICF1); // resets ICF1
+    TCNT1 = 0;           // Resets TCNT1
+    time = ICR1;         // copies ICR1 into a local variable
+    printf("\ntime is: %d", time);
     _delay_ms(100);
   }
 
